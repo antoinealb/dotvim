@@ -224,7 +224,7 @@ if $COLORTERM == 'gnome-terminal'
   set t_Co=256
 endif
 
-colorscheme molokai
+colorscheme molokai/colors/molokai
 
 " Reverse the line order in the current visual selection"
 command! Reverse '<'>global/^/move '<-1
