@@ -1,3 +1,6 @@
 [submodule "colors/molokai"]
 	path = colors/molokai
 	url = https://github.com/tomasr/molokai.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
