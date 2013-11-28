@@ -242,3 +242,6 @@ cmap w!! w !sudo tee >/dev/null %
 
 " Sets bash as the default shell"
 set shell=/bin/bash
+
+" Highlights the 80th column to avoid going further than it "
+set colorcolumn=80
