@@ -7,3 +7,9 @@
 [submodule "syntax/avr"]
 	path = syntax/avr
 	url = https://github.com/vim-scripts/avr.vim
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = https://github.com/bling/vim-airline
+[submodule "bundle/fugitive"]
+	path = bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive

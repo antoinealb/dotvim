@@ -231,6 +231,9 @@ set modeline
 " one). 
 set wildmenu
 
+" Enables vim-airline even when there is only a single buffer.
+set laststatus=2
+
 
 " Scroll 8 lines before the end."
 set scrolloff=8
