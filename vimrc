@@ -94,6 +94,15 @@ if has("autocmd")
 
   augroup END
 
+  " If we are editing a Git commit message, jump to the beginning instead of
+  " last used time."
+  augroup gitCommitEditMsg
+      autocmd!
+      autocmd BufReadPost *
+                  \ if @% == '.git/COMMIT_EDITMSG' |
+                  \   exe "normal gg" |
+                  \ endif
+  augroup END
 else
 
   set autoindent		" always set autoindenting on
@@ -245,3 +254,4 @@ set shell=/bin/bash
 
 " Highlights the 80th column to avoid going further than it "
 set colorcolumn=80
+
