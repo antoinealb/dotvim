@@ -258,3 +258,6 @@ set shell=/bin/bash
 " Highlights the 80th column to avoid going further than it "
 set colorcolumn=80
 
+" Delete trailing whitespace on write. "
+autocmd FileType c,cpp,python,markdown autocmd BufWritePre <buffer> :%s/\s\+$//e
+
