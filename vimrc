@@ -25,17 +25,17 @@ set nocompatible
 set backspace=indent,eol,start
 
 if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
+  set nobackup      " do not keep a backup file, use versions instead
 else
     " Puts all backup files in ~/.vim/backup"
-    set backup		" keep a backup file
+    set backup      " keep a backup file
     set backupdir=~/.vim/backup
 endif
 
-set history=50		" keep 50 lines of command line history
-set ruler   		" show the cursor position all the time
-set showcmd	    	" display incomplete commands
-set incsearch		" do incremental searching
+set history=50      " keep 50 lines of command line history
+set ruler           " show the cursor position all the time
+set showcmd         " display incomplete commands
+set incsearch       " do incremental searching
 set smartcase       " turn on smart casing
 set ignorecase       " turn on smart casing
 
@@ -63,7 +63,7 @@ endif
 set relativenumber
 set number
 
-" Sets ctags lookup dir 
+" Sets ctags lookup dir
 set tags=tags;/
 
 " Only do this part when compiled with support for autocommands.
@@ -105,7 +105,7 @@ if has("autocmd")
   augroup END
 else
 
-  set autoindent		" always set autoindenting on
+  set autoindent        " always set autoindenting on
 
 endif " has("autocmd")
 
@@ -114,12 +114,12 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+          \ | wincmd p | diffthis
 endif
 
 " Maps all the exotic files to the correct syntax. "
-au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl 
-au BufNewFile,BufRead *.dasm,*.dpcu setf dcpu 
+au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
+au BufNewFile,BufRead *.dasm,*.dpcu setf dcpu
 au BufNewFile,Bufread *.asm setf avr
 
 "Hitting enter in command mode after a search will clear the search pattern"
@@ -129,10 +129,10 @@ noremap <CR> :noh<CR><CR>
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set expandtab 
+set expandtab
 
 " The terminal uses dark background."
-set background=dark 
+set background=dark
 
 " Adds highlighting for @todo"
 highlight todoTags guifg=red guibg=green
@@ -222,13 +222,13 @@ let g:ConqueTerm_InsertOnEnter = 1
 let g:ConqueTerm_Color = 1
 
 " Enables modeline"
-set modeline 
+set modeline
 
 " When 'wildmenu' is on, command-line completion operates in an enhanced
 " mode.  On pressing 'wildchar' (usually <Tab>) to invoke completion,
 " the possible matches are shown just above the command line, with the
 " first match highlighted (overwriting the status line, if there is
-" one). 
+" one).
 set wildmenu
 
 " Enables vim-airline even when there is only a single buffer.
