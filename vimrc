@@ -192,7 +192,7 @@ noremap <space> :call ToggleFold()<CR>
 
 " Maps make to F5 and tells vim to do an out of source build in ./build"
 set makeprg=make\ -C\ build/
-noremap <F5> :w<CR> :make<CR> :cw<CR>
+noremap <F5> :make<CR> :cw<CR>
 
 " Required for omnicpp "
 set nocp
