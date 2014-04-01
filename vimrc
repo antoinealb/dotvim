@@ -144,6 +144,9 @@ call pathogen#infect()
 " Maps NERDTree to F2 "
 map <F2> :NERDTreeToggle<CR>
 
+"Map jj to escape
+inoremap jj <Esc>
+
 
 " Autoclose Vim if the only window left open is NERDTree "
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
