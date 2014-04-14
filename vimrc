@@ -247,7 +247,8 @@ if $COLORTERM == 'gnome-terminal'
   set t_Co=256
 endif
 
-colorscheme molokai/colors/molokai
+let g:solarized_termcolors=256
+colorscheme solarized
 
 " Reverse the line order in the current visual selection"
 command! Reverse '<'>global/^/move '<-1
@@ -262,5 +263,5 @@ set shell=/bin/bash
 set colorcolumn=80
 
 " Delete trailing whitespace on write. "
-autocmd FileType c,cpp,python,markdown autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,python,markdown,cmake autocmd BufWritePre <buffer> :%s/\s\+$//e
 
