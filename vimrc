@@ -200,32 +200,11 @@ noremap <space> :call ToggleFold()<CR>
 set makeprg=make\ -C\ build/
 noremap <F5> :make<CR> :cw<CR>
 
-" Required for omnicpp "
-set nocp
-filetype plugin on
-
-map <C-F6> <Esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+fq .<cr>
-let OmniCpp_NamespaceSearch = 1
-let g:ConqueTerm_CloseOnEnd = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_MayCompleteDot = 1
-let OmniCpp_MayCompleteArrow = 1
-let OmniCpp_MayCompleteScope = 1
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-
 " Automatically reload vimrc on writing to it."
 au! BufWritePost $MYVIMRC source $MYVIMRC
 
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
-
-" ConqueTerm "
-
-command! Bash ConqueTermVSplit bash
-let g:ConqueTerm_PromptRegex = '^\w\+@[0-9A-Za-z_.-]\+:[0-9A-Za-z_./\~,:-]\+\$'
-let g:ConqueTerm_InsertOnEnter = 1
-let g:ConqueTerm_Color = 1
 
 " Enables modeline"
 set modeline
