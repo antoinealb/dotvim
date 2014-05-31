@@ -8,6 +8,9 @@ if has('win32') || has('win64')
     " Make windows use ~/.vim too, I don't want to use _vimfiles
     set runtimepath^=~/.vim
     set guifont=Lucida_Console:h10
+
+    " By default we are in system32, switch to home
+    cd ~
 endif
 
 
