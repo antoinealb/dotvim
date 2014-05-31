@@ -19,3 +19,6 @@
 [submodule "bundle/abolish"]
 	path = bundle/abolish
 	url = git://github.com/tpope/vim-abolish.git
+[submodule "colors/kolor"]
+	path = colors/kolor
+	url = https://github.com/zeis/vim-kolor
