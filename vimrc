@@ -1,8 +1,9 @@
 " A custom Vimrc file
 " Maintainer : Antoine Albertelli <antoine.albertelli@gmail.com>
-" Based on original vimrc by Bram Moolenaar <bram@vimrc>
 
-
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
 
 if has('win32') || has('win64')
     " Make windows use ~/.vim too, I don't want to use _vimfiles
@@ -14,9 +15,6 @@ if has('win32') || has('win64')
 endif
 
 
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
 
 " Disable beep" 
 set visualbell
