@@ -14,12 +14,6 @@ if has('win32') || has('win64')
 endif
 
 
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
-
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -45,8 +39,6 @@ set incsearch       " do incremental searching
 set smartcase       " turn on smart casing
 set ignorecase       " turn on smart casing
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -72,61 +64,40 @@ set number
 " Sets ctags lookup dir
 set tags=tags;/
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
+" Enable file type detection.
+" Use the default filetype settings, so that mail gets 'tw' set to 72,
+" 'cindent' is on in C files, etc.
+" Also load indent files, to automatically do language-dependent indenting.
+filetype plugin indent on
 
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
+" Put these in an autocmd group, so that we can delete them easily.
+augroup vimrcEx
+    au!
 
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
+    " For all text files set 'textwidth' to 78 characters.
+    autocmd FileType text setlocal textwidth=78
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    " Also don't do it when the mark is in the first line, that is the default
+    " position when opening a file.
+    autocmd BufReadPost *
+                \ if line("'\"") > 1 && line("'\"") <= line("$") |
+                \   exe "normal! g`\"" |
+                \ endif
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  " Also don't do it when the mark is in the first line, that is the default
-  " position when opening a file.
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
+augroup END
 
-  augroup END
-
-  " If we are editing a Git commit message, jump to the beginning instead of
-  " last used time."
-  augroup gitCommitEditMsg
-      autocmd!
-      autocmd BufReadPost *
-                  \ if @% == '.git/COMMIT_EDITMSG' |
-                  \   exe "normal gg" |
-                  \ endif
-  augroup END
-else
-
-  set autoindent        " always set autoindenting on
-
-endif " has("autocmd")
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-          \ | wincmd p | diffthis
-endif
-
-" Maps all the exotic files to the correct syntax. "
-au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
-au BufNewFile,BufRead *.dasm,*.dpcu setf dcpu
-au BufNewFile,Bufread *.asm setf avr
+" If we are editing a Git commit message, jump to the beginning instead of
+" last used time."
+augroup gitCommitEditMsg
+    autocmd!
+    autocmd BufReadPost *
+                \ if @% == '.git/COMMIT_EDITMSG' |
+                \   exe "normal gg" |
+                \ endif
+augroup END
 
 "Hitting enter in command mode after a search will clear the search pattern"
 noremap <CR> :noh<CR><CR>
@@ -140,19 +111,11 @@ set expandtab
 " The terminal uses dark background."
 set background=dark
 
-" Adds highlighting for @todo"
-highlight todoTags guifg=red guibg=green
-syntax match todoTags /todo/
-
 " Launch Pathogen run time manipulation plugin "
 call pathogen#infect()
 
 " Maps NERDTree to F2 "
 map <F2> :NERDTreeToggle<CR>
-
-"Map jj to escape
-inoremap jj <Esc>
-
 
 " Autoclose Vim if the only window left open is NERDTree "
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -178,8 +141,6 @@ set foldclose=
 set foldmethod=syntax
 set foldnestmax=10
 set foldlevel=999
-"set fillchars=vert:\|,fold:\
-"set foldminlines=1
 " Toggle fold state between closed and opened.
 
 " If there is no fold at current line, just moves forward.
@@ -203,8 +164,6 @@ noremap <space> :call ToggleFold()<CR>
 set makeprg=make\ -C\ build/
 noremap <F5> :make<CR> :cw<CR>
 
-" Automatically reload vimrc on writing to it."
-au! BufWritePost $MYVIMRC source $MYVIMRC
 
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
@@ -233,12 +192,6 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 colorscheme kolor/colors/kolor
-
-" Reverse the line order in the current visual selection"
-command! Reverse '<'>global/^/move '<-1
-
-" Maps :w!! to write to the file as root."
-cmap w!! w !sudo tee >/dev/null %
 
 " Sets bash as the default shell"
 set shell=/bin/bash
