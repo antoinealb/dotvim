@@ -1,20 +1,9 @@
 " A custom Vimrc file
 " Maintainer : Antoine Albertelli <antoine.albertelli@gmail.com>
-
+"
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
-
-if has('win32') || has('win64')
-    " Make windows use ~/.vim too, I don't want to use _vimfiles
-    set runtimepath^=~/.vim
-    set guifont=Lucida_Console:h10
-
-    " By default we are in system32, switch to home
-    cd ~
-endif
-
-
 
 " Disable beep" 
 set visualbell
