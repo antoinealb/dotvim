@@ -50,10 +50,6 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-" Show line numbers
-set relativenumber
-set number
-
 " Sets ctags lookup dir
 set tags=tags;/
 
@@ -107,24 +103,6 @@ set background=dark
 " Launch Pathogen run time manipulation plugin "
 call pathogen#infect()
 
-" Maps NERDTree to F2 "
-map <F2> :NERDTreeToggle<CR>
-
-" Autoclose Vim if the only window left open is NERDTree "
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" Toggle bitween relative and aboslute line-numbers "
-nnoremap <F6> :call ToggleNumbers()<cr>
-
-function! ToggleNumbers()
-    if &relativenumber
-        set norelativenumber
-        set number
-    else
-        set relativenumber
-    endif
-endfunction
-
 "http://stackoverflow.com/questions/849084/what-fold-should-i-use-in-vim
 " Folding stuff
 hi Folded guibg=red guifg=Red cterm=bold ctermbg=DarkGrey ctermfg=lightblue
@@ -153,16 +131,7 @@ endf
 " Map this function to Space key.
 noremap <space> :call ToggleFold()<CR>
 
-" Maps make to F5 and tells vim to do an out of source build in ./build"
-set makeprg=make\ -C\ build/
-noremap <F5> :make<CR> :cw<CR>
-
-
 set grepprg=grep\ -nH\ $*
-let g:tex_flavor = "latex"
-
-" Enables modeline"
-set modeline
 
 " When 'wildmenu' is on, command-line completion operates in an enhanced
 " mode.  On pressing 'wildchar' (usually <Tab>) to invoke completion,
@@ -177,12 +146,6 @@ set laststatus=2
 
 " Scroll 8 lines before the end."
 set scrolloff=8
-
-"GNOME Terminal supports 256 colors, but doesn't advertise its support."
-
-if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
-endif
 
 colorscheme kolor/colors/kolor
 
