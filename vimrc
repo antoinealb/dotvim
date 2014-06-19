@@ -178,12 +178,9 @@ set laststatus=2
 " Scroll 8 lines before the end."
 set scrolloff=8
 
-"GNOME Terminal supports 256 colors, but doesn't advertise its support."
-
-if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
-endif
-
+"some terminals, such as GNOME and XFCE supports 256 colors, but doesn't
+"advertise its support."
+set t_Co=256
 colorscheme kolor/colors/kolor
 
 " Sets bash as the default shell"
