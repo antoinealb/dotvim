@@ -1,0 +1,41 @@
+# Test Macros
+snippet tg
+TEST_GROUP(${1:group})
+{
+	${2}
+}
+endsnippet
+
+snippet te
+TEST(${1:group}, ${2:testname})
+{
+	${3:/* arrange, act, assert */}
+}
+endsnippet
+
+# Assertions
+
+snippet c 
+CHECK(${1:boolean}, ${2:condition});
+endsnippet
+snippet ce
+CHECK_EQUAL(${1:expected}, ${2:actual});
+endsnippet
+snippet ste
+STRCMP_EQUAL(${1:expected}, ${2:actual});
+endsnippet
+snippet le
+LONGS_EQUAL(${1:expected}, ${2:actual});
+endsnippet
+snippet be
+BYTES_EQUAL(${1:expected}, ${2:actual});
+endsnippet
+snippet pe
+POINTERS_EQUAL(${1:expected}, ${2:actual});
+endsnippet
+snippet de
+DOUBLES_EQUAL(${1:expected}, ${2:actual}, ${3:tolerance});
+endsnippet
+snippet f
+FAIL("${1:text}");
+endsnippet

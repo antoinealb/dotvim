@@ -23,5 +23,5 @@
 	path = bundle/vim-jinja
 	url = https://github.com/lepture/vim-jinja.git
 [submodule "ultisnips"]
-	path = ultisnips
+	path = bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
