@@ -192,3 +192,9 @@ set colorcolumn=80
 " Delete trailing whitespace on write. "
 autocmd FileType c,cpp,python,markdown autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+" Ultisnip config. "
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+
