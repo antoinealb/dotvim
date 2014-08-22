@@ -14,6 +14,22 @@ if has('win32') || has('win64')
     cd ~
 endif
 
+" Vundle plugins"
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'lepture/vim-jinja'
+Plugin 'SirVer/ultisnips'
+
+" All of your Plugins must be added before the following line
+call vundle#end()
+filetype plugin indent on
 
 
 " Disable beep" 
@@ -103,9 +119,6 @@ set expandtab
 
 " The terminal uses dark background."
 set background=dark
-
-" Launch Pathogen run time manipulation plugin "
-call pathogen#infect()
 
 " Maps NERDTree to F2 "
 map <F2> :NERDTreeToggle<CR>
