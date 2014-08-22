@@ -171,6 +171,9 @@ set modeline
 " one).
 set wildmenu
 
+""" Files to ignore for auto complete."""
+set wildignore=*.pyc
+
 " Enables vim-airline even when there is only a single buffer.
 set laststatus=2
 
