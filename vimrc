@@ -54,6 +54,9 @@ set ignorecase       " turn on smart casing
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
+" Allows to escape insert mode without leaving home row.
+inoremap jk <Esc>
+
 " In many terminal emulators the mouse works just fine, thus enable it.
 " FIXME Doesnt work very well with gnome term.
 if has('mouse')
