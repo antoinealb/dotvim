@@ -204,7 +204,7 @@ set t_Co=256
 colorscheme kolor/colors/kolor
 
 " Sets bash as the default shell"
-set shell=/bin/bash
+set shell=bash
 
 " Highlights the 80th column to avoid going further than it "
 set colorcolumn=80
