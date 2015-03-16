@@ -27,6 +27,18 @@ ${VISUAL}${0}
 #endif
 endsnippet
 
+snippet cpp "C++ include definition"
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+${VISUAL}${0}
+
+#ifdef __cplusplus
+}
+#endif
+endsnippet
+
 snippet tds "Typedef struct"
 typedef struct {
 	${0:/* fields */}
