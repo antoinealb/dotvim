@@ -27,6 +27,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'lepture/vim-jinja'
 Plugin 'SirVer/ultisnips'
 Plugin 'tpope/vim-fugitive'
+Plugin 'gerw/vim-latex-suite'
 Plugin 'ntpeters/vim-better-whitespace'
 
 " All of your Plugins must be added before the following line
