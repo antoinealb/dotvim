@@ -235,3 +235,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" Neovim specific settings "
+if has('nvim')
+    " Exit terminal emulation
+    tnoremap jk <c-\><c-n>
+    tnoremap kj <c-\><c-n>
+end
