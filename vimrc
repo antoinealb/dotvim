@@ -241,3 +241,6 @@ if has('nvim')
     tnoremap jk <c-\><c-n>
     tnoremap kj <c-\><c-n>
 end
+
+" Map t to go to tag, since C-T goes back
+nnoremap t <C-]>
