@@ -31,6 +31,7 @@ Plugin 'gerw/vim-latex-suite'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/syntastic'
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
