@@ -1,6 +1,14 @@
-Installation
-------------
-    git clone --recursive git://github.com/antoinealb/dotvim.git ~/.vim
-    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    ln -s ~/.vim/vimrc ~/.vimrc
-    vim -c ":PluginInstall"
+# Requirements
+
+* Vim (obviously). Neovim also works.
+* libclang for clang autocomplete.
+
+# Installation
+Simply run `bootstrap.sh`.
+You can get it directly from Github by running the following command:
+
+```bash
+curl https://raw.githubusercontent.com/antoinealb/dotvim/master/bootstrap.sh | sh
+```
+
+If you want Python omnicompletion you should also install the `jedi` package in the virtualenv you are working in.
