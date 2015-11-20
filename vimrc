@@ -64,12 +64,10 @@ if has('mouse')
   set mouse=a
 endif
 
-" Switch syntax highlighting on, when the terminal has colors
+" Switch syntax highlighting on
 " Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
+syntax on
+set hlsearch
 
 " Show line numbers
 set relativenumber
