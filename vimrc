@@ -55,10 +55,6 @@ set incsearch       " do incremental searching
 set smartcase       " turn on smart casing
 set ignorecase       " turn on smart casing
 
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
-
 " Allows to escape insert mode without leaving home row.
 inoremap jk <Esc>
 
