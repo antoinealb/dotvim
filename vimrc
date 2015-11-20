@@ -105,10 +105,7 @@ augroup END
 " last used time."
 augroup gitCommitEditMsg
     autocmd!
-    autocmd BufReadPost *
-                \ if @% == '.git/COMMIT_EDITMSG' |
-                \   exe "normal gg" |
-                \ endif
+    autocmd BufReadPost COMMIT_EDITMSG exe "normal gg"
 augroup END
 
 " Remap non standard file extensions. "
