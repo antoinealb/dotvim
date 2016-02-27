@@ -111,6 +111,7 @@ augroup END
 " Remap non standard file extensions. "
 au BufNewFile,BufRead *.sls set filetype=yaml
 au BufNewFile,BufRead *.md set filetype=markdown
+au BufNewFile,BufRead *.launch set filetype=xml
 
 "Hitting enter in command mode after a search will clear the search pattern"
 noremap <CR> :noh<CR><CR>
