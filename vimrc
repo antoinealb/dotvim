@@ -171,11 +171,6 @@ endf
 " Map this function to Space key.
 noremap <space> :call ToggleFold()<CR>
 
-" Maps make to F5 and tells vim to do an out of source build in ./build"
-set makeprg=make\ -C\ build/
-noremap <F5> :make<CR> :cw<CR>
-
-
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 
