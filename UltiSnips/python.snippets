@@ -1,11 +1,22 @@
 snippet exe "Basic executable boilerplate"
 #!/usr/bin/env python3
+"""
+"""
+
+import argparse
+
+${VISUAL}${0}
+
+def parse_args():
+	parser = argparse.ArgumentParser(description=__doc__)
+
+	return parser.parse_args()
 
 def main():
-    pass
+	args = parse_args()
 
 if __name__ == '__main__':
-    main()
+	main()
 endsnippet
 
 snippet bp "Breakpoint"
