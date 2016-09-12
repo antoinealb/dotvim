@@ -206,7 +206,7 @@ set shell=bash
 set colorcolumn=80
 
 " Delete trailing whitespace on write. "
-autocmd FileType c,cpp,python,markdown autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,python,markdown autocmd BufWritePre <buffer> :StripWhitespace
 
 " Ultisnip config. "
 
