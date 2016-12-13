@@ -1,5 +1,12 @@
 extends c
 
+# Headers needed for cpputest
+snippet cpputest
+#include <CppUTest/TestHarness.h>
+#include <CppUTestExt/MockSupport.h>
+
+endsnippet
+
 # Test Macros
 snippet tg
 TEST_GROUP(${1:group})
