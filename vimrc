@@ -73,6 +73,10 @@ set hlsearch        " highlight search results
 set relativenumber
 set number
 
+" Don't redraw the screen when its not needed (during macros)
+set lazyredraw
+
+
 " Sets ctags lookup dir
 set tags=tags;/
 
