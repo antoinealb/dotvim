@@ -51,7 +51,6 @@ set backupdir=~/.vim/backup
 set history=50      " keep 50 lines of command line history
 set ruler           " show the cursor position all the time
 set showcmd         " display incomplete commands
-set incsearch       " do incremental searching
 set smartcase       " turn on smart casing
 set ignorecase       " turn on smart casing
 
@@ -65,9 +64,10 @@ if has('mouse')
 endif
 
 " Switch syntax highlighting on
-" Also switch on highlighting the last used search pattern.
 syntax on
-set hlsearch
+
+set incsearch       " do incremental searching
+set hlsearch        " highlight search results
 
 " Show line numbers
 set relativenumber
@@ -117,10 +117,10 @@ au BufNewFile,BufRead *.launch set filetype=xml
 noremap <CR> :noh<CR><CR>
 
 "4 space indentation"
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
+set tabstop=4       " number of visual spaces per tab
+set shiftwidth=4    " number of spaces to use for autoindent
+set softtabstop=4   " number of spaces to insert/remove on <TAB>
+set expandtab       " insert spaces instead of tabs
 
 " The terminal uses dark background."
 set background=dark
