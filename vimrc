@@ -209,6 +209,9 @@ set shell=bash
 " Highlights the 80th column to avoid going further than it "
 set colorcolumn=80
 
+" Highlight the line on which the cursor lies
+set cursorline
+
 " Delete trailing whitespace on write. "
 autocmd FileType c,cpp,python,markdown autocmd BufWritePre <buffer> :StripWhitespace
 
