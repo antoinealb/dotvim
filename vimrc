@@ -215,6 +215,11 @@ set cursorline
 " Delete trailing whitespace on write. "
 autocmd FileType c,cpp,python,markdown autocmd BufWritePre <buffer> :StripWhitespace
 
+" Use the silver searcher for Ctrl-P because its faster
+if executable('ag')
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+end
+
 " Ultisnip config. "
 
 let g:UltiSnipsExpandTrigger="<tab>"
