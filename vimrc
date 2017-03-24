@@ -153,7 +153,7 @@ hi Folded guibg=red guifg=Red cterm=bold ctermbg=DarkGrey ctermfg=lightblue
 hi FoldColumn guibg=grey78 gui=Bold guifg=DarkBlue
 set foldcolumn=2
 set foldclose=
-set foldmethod=syntax
+set foldmethod=indent
 set foldnestmax=10
 set foldlevel=999
 " Toggle fold state between closed and opened.
