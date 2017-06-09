@@ -245,3 +245,6 @@ end
 
 " Map t to go to tag, since C-T goes back
 nnoremap t <C-]>
+
+" Use the system yank by default
+set clipboard=unnamedplus
