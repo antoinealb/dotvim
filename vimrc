@@ -247,5 +247,8 @@ end
 " Map t to go to tag, since C-T goes back
 nnoremap t <C-]>
 
+" Disable octal numbering, because I never use it
+set nrformats-=octal
+
 " Use the system yank by default
 set clipboard=unnamedplus
