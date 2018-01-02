@@ -30,10 +30,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'gerw/vim-latex-suite'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/vim-haskell-indent'
 Plugin 'chr4/nginx.vim'
+Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
