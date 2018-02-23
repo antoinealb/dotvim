@@ -34,6 +34,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/vim-haskell-indent'
 Plugin 'chr4/nginx.vim'
 Plugin 'w0rp/ale'
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -252,3 +253,11 @@ set nrformats-=octal
 
 " Use the system yank by default
 set clipboard=unnamedplus
+ 
+" Remap Ultisnip open from <TAB> To Ctrl-space so that it can be used together
+" with YouCompleteMe
+let g:UltiSnipsExpandTrigger="<C-Space>"
+let g:UltiSnipsJumpForwardTrigger="<C-Space>"
+
+" Automatically close autocomplete window once the user selected an option
+let g:ycm_autoclose_preview_window_after_completion = 1
