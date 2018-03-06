@@ -60,6 +60,9 @@ set ignorecase       " turn on smart casing
 " Allows to escape insert mode without leaving home row.
 inoremap jk <Esc>
 
+" Use , as leader key
+:let mapleader = ","
+
 " In many terminal emulators the mouse works just fine, thus enable it.
 " FIXME Doesnt work very well with gnome term.
 if has('mouse')
@@ -263,3 +266,7 @@ let g:UltiSnipsJumpForwardTrigger="<C-Space>"
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 let g:ycm_python_binary_path = 'python'
+
+nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>G :YcmCompleter GoToImprecise<CR>
+nnoremap <leader>t :YcmCompleter GetType<CR>
