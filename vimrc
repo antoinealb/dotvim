@@ -35,6 +35,7 @@ Plugin 'itchyny/vim-haskell-indent'
 Plugin 'chr4/nginx.vim'
 Plugin 'w0rp/ale'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'rhysd/vim-clang-format'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -159,7 +160,7 @@ hi Folded guibg=red guifg=Red cterm=bold ctermbg=DarkGrey ctermfg=lightblue
 hi FoldColumn guibg=grey78 gui=Bold guifg=DarkBlue
 set foldcolumn=2
 set foldclose=
-set foldmethod=indent
+set foldmethod=syntax
 set foldnestmax=10
 set foldlevel=999
 " Toggle fold state between closed and opened.
@@ -266,6 +267,8 @@ let g:UltiSnipsJumpForwardTrigger="<C-Space>"
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 let g:ycm_python_binary_path = 'python'
+
+let g:clang_format#detect_style_file = 1
 
 nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>G :YcmCompleter GoToImprecise<CR>
