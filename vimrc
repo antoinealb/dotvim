@@ -229,9 +229,8 @@ end
 
 " Ultisnip config. "
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+let g:UltiSnipsExpandTrigger="<leader><TAB>"
+let g:UltiSnipsJumpForwardTrigger="<leader><TAB>"
 let g:UltiSnipsEditSplit="horizontal"
 
 set statusline+=%#warningmsg#
@@ -257,11 +256,6 @@ set nrformats-=octal
 
 " Use the system yank by default
 set clipboard=unnamedplus
- 
-" Remap Ultisnip open from <TAB> To Ctrl-space so that it can be used together
-" with YouCompleteMe
-let g:UltiSnipsExpandTrigger="<C-Space>"
-let g:UltiSnipsJumpForwardTrigger="<C-Space>"
 
 " Automatically close autocomplete window once the user selected an option
 let g:ycm_autoclose_preview_window_after_completion = 1
