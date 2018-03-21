@@ -267,3 +267,5 @@ let g:clang_format#detect_style_file = 1
 nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>G :YcmCompleter GoToImprecise<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
+nnoremap <leader>f :YcmCompleter FixIt<CR>
+autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr><C-o>
