@@ -264,6 +264,11 @@ let g:ycm_python_binary_path = 'python'
 
 let g:clang_format#detect_style_file = 1
 
+let g:ale_linters = {
+\   'c': ['clang', 'gcc'],
+\   'cpp': ['clang', 'gcc'],
+\}
+
 nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>G :YcmCompleter GoToImprecise<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
