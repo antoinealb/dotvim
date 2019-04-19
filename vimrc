@@ -35,8 +35,11 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/vim-haskell-indent'
 Plugin 'chr4/nginx.vim'
-Plugin 'w0rp/ale'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'prabirshrestha/async.vim'
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 Plugin 'rhysd/vim-clang-format'
 
 " All of your Plugins must be added before the following line
@@ -235,9 +238,6 @@ let g:UltiSnipsExpandTrigger="<leader><TAB>"
 let g:UltiSnipsJumpForwardTrigger="<leader><TAB>"
 let g:UltiSnipsEditSplit="horizontal"
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -276,3 +276,22 @@ nnoremap <leader>G :YcmCompleter GoToImprecise<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
 nnoremap <leader>f :YcmCompleter FixIt<CR>
 autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr><C-o>
+"autocmd FileType markdown inoremap oe œ
+"
+if executable('clangd')
+    augroup lsp_clangd
+        autocmd!
+        autocmd User lsp_setup call lsp#register_server({
+                    \ 'name': 'clangd',
+                    \ 'cmd': {server_info->['clangd']},
+                    \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+                    \ })
+        autocmd FileType c setlocal omnifunc=lsp#complete
+        autocmd FileType cpp setlocal omnifunc=lsp#complete
+        autocmd FileType objc setlocal omnifunc=lsp#complete
+        autocmd FileType objcpp setlocal omnifunc=lsp#complete
+    augroup end
+endif"
+
+
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
