@@ -291,7 +291,15 @@ if executable('clangd')
         autocmd FileType objc setlocal omnifunc=lsp#complete
         autocmd FileType objcpp setlocal omnifunc=lsp#complete
     augroup end
-endif"
+endif
+
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
 
 
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
