@@ -1,7 +1,8 @@
 # Requirements
 
 * Vim (obviously). Neovim also works.
-* libclang for clang autocomplete.
+* clangd for C/C++ autocomplete
+* python-language-server for Python autocomplete
 
 # Installation
 Simply run `bootstrap.sh`.
