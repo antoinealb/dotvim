@@ -277,10 +277,10 @@ let g:ale_linters = {
 \   'cpp': ['clang', 'gcc'],
 \}
 
-nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>G :YcmCompleter GoToImprecise<CR>
-nnoremap <leader>t :YcmCompleter GetType<CR>
-nnoremap <leader>f :YcmCompleter FixIt<CR>
+nnoremap <leader>g :LspDefinition<CR>
+nnoremap <leader>G :LspDeclaration<CR>
+nnoremap <leader>p :LspPeekDeclaration<CR>
+nnoremap <leader>P :LspPeekDeclaration<CR>
 autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr><C-o>
 "autocmd FileType markdown inoremap oe œ
 "
