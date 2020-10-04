@@ -39,6 +39,7 @@ Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 Plugin 'google/vim-maktaba'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -309,3 +310,6 @@ endif
 
 
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+"Set refresh delay to 100 ms for vimgutter
+set updatetime=100
