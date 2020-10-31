@@ -308,6 +308,8 @@ if executable('pyls')
         \ })
 endif
 
+let g:lsp_diagnostics_float_cursor = 1
+let g:lsp_diagnostics_float_delay = 100
 
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
