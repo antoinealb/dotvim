@@ -39,7 +39,6 @@ Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 Plugin 'google/vim-maktaba'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
-Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -89,7 +88,7 @@ set incsearch       " do incremental searching
 set hlsearch        " highlight search results
 
 " Show line numbers
-set relativenumber
+set norelativenumber
 set number
 
 " Don't redraw the screen when its not needed (during macros)
@@ -150,9 +149,6 @@ set background=dark
 
 " Maps NERDTree to F2 "
 map <F2> :NERDTreeToggle<CR>
-
-" Autoclose Vim if the only window left open is NERDTree "
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Toggle bitween relative and aboslute line-numbers "
 nnoremap <F6> :call ToggleNumbers()<cr>
@@ -231,9 +227,6 @@ set colorcolumn=80
 " Highlight the line on which the cursor lies
 set cursorline
 
-" Delete trailing whitespace on write. "
-autocmd FileType c,cpp,python,markdown autocmd BufWritePre <buffer> :StripWhitespace
-
 " Use the silver searcher for Ctrl-P because its faster
 if executable('ag')
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -282,7 +275,6 @@ nnoremap <leader>g :LspDefinition<CR>
 nnoremap <leader>G :LspDeclaration<CR>
 nnoremap <leader>p :LspPeekDeclaration<CR>
 nnoremap <leader>P :LspPeekDeclaration<CR>
-autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr><C-o>
 "autocmd FileType markdown inoremap oe œ
 "
 if executable('clangd')
