@@ -1,0 +1,30 @@
+snippet letter "KOMAScript letter template"
+\documentclass[a4paper,SN]{scrlttr2}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{url}
+
+\setkomavar{fromname}{Antoine Albertelli}
+\setkomavar{fromaddress}{XX\\\\8055 Zürich}
+\setkomavar{fromphone}{079 XXX XX XX}
+
+\begin{document}
+
+\begin{letter}{${1:addresse}}
+
+\KOMAoptions{fromphone=true,fromfax=false}
+\setkomavar{subject}{Demande d'admission au service civil incomplète}
+\setkomavar{customer}{1234}
+\opening{Madame, Monsieur}
+
+${VISUAL}${0}
+
+\closing{Meilleures salutations.}
+% \encl{pièce jointe}
+
+\end{letter}
+
+\end{document}
+endsnippet
