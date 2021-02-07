@@ -48,6 +48,7 @@ augroup autoformat_settings
   autocmd FileType c,cpp,proto AutoFormatBuffer clang-format
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType python AutoFormatBuffer black
+  autocmd FileType bzl AutoFormatBuffer buildifier
 augroup END
 
 filetype plugin indent on
@@ -134,6 +135,7 @@ augroup END
 au BufNewFile,BufRead *.sls set filetype=yaml
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead *.launch set filetype=xml
+au BufNewFile,BufRead *.sky set filetype=bzl
 
 "Hitting enter in command mode after a search will clear the search pattern"
 noremap <CR> :noh<CR><CR>
