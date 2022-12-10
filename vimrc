@@ -45,7 +45,8 @@ call vundle#end()
 call glaive#Install()
 
 augroup autoformat_settings
-  autocmd FileType c,cpp,proto AutoFormatBuffer clang-format
+  autocmd FileType c,cpp,proto,arduino AutoFormatBuffer clang-format
+  autocmd FileType javascript AutoFormatBuffer prettier
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType python AutoFormatBuffer black
   autocmd FileType bzl AutoFormatBuffer buildifier
