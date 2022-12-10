@@ -90,7 +90,7 @@ set incsearch       " do incremental searching
 set hlsearch        " highlight search results
 
 " Show line numbers
-set norelativenumber
+set relativenumber
 set number
 
 " Don't redraw the screen when its not needed (during macros)
