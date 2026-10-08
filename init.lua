@@ -64,6 +64,88 @@ require("lazy").setup({
 			format_on_save = { timeout_ms = 500, lsp_fallback = true },
 		},
 	},
+
+	-- LSP servers
+	{
+		"neovim/nvim-lspconfig",
+		lazy = false,
+		config = function()
+			-- Completion capabilities provided by nvim-cmp
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			vim.lsp.config("*", { capabilities = capabilities })
+
+			vim.lsp.config("emmylua_ls", {
+				settings = {
+					emmylua = {
+						-- Tell the server which Lua you're using (Neovim embeds LuaJIT).
+						runtime = { version = "LuaJIT" },
+						diagnostics = { globals = { "vim" } },
+						-- Make the server aware of Neovim runtime files.
+						workspace = {
+							library = { vim.env.VIMRUNTIME },
+						},
+					},
+				},
+			})
+
+			vim.lsp.enable({ "clangd", "basedpyright", "emmylua_ls" })
+		end,
+	},
+
+	-- Completion with nvim-cmp
+	{
+		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
+		},
+		config = function()
+			local cmp = require("cmp")
+			local luasnip = require("luasnip")
+
+			cmp.setup({
+				snippet = {
+					expand = function(args)
+						luasnip.lsp_expand(args.body)
+					end,
+				},
+				mapping = cmp.mapping.preset.insert({
+					["<Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_next_item()
+						elseif luasnip.expand_or_jumpable() then
+							luasnip.expand_or_jump()
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
+					["<S-Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_prev_item()
+						elseif luasnip.jumpable(-1) then
+							luasnip.jump(-1)
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
+					["<C-Space>"] = cmp.mapping.complete(),
+					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<C-e>"] = cmp.mapping.abort(),
+				}),
+				sources = cmp.config.sources({
+					{ name = "nvim_lsp" },
+					{ name = "luasnip" },
+				}, {
+					{ name = "buffer" },
+					{ name = "path" },
+				}),
+			})
+		end,
+	},
 })
 
 vim.opt.showcmd = true
