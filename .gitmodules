@@ -1,3 +1,0 @@
-[submodule "colors/kolor"]
-	path = colors/kolor
-	url = https://github.com/zeis/vim-kolor
